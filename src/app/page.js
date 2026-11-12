@@ -1,4 +1,5 @@
 import Like from "@/components/Like";
+import Link from "next/link";
 
 async function Home() {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -11,7 +12,16 @@ async function Home() {
       <Like />
       <ul>
         {posts.map((post) => {
-          return <li key={post.id}>{post.title}</li>;
+          return (
+            <li key={post.id}>
+              <Link
+                href={`/post/${post.id}`}
+                className="underline text-blue-500"
+              >
+                {post.title}
+              </Link>
+            </li>
+          );
         })}
       </ul>
     </div>
