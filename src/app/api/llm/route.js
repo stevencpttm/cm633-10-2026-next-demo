@@ -1,6 +1,14 @@
 export async function POST(request) {
   const data = await request.json();
 
+  // Reference: ?test=xxxxxx
+  // const searchParams = request.nextUrl.searchParams;
+  // const test = searchParams.get("test");
+
+  // return Response.json({
+  //   test: test,
+  // });
+
   const word = data.word;
 
   const response = await fetch(
